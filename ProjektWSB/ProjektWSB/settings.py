@@ -27,12 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'account.Account'
+
 
 # Application definition
 
 INSTALLED_APPS = [
     # Moje aplikacje
     'personal',
+    'account',
 
     # Aplikacje standardowe
     'django.contrib.admin',
