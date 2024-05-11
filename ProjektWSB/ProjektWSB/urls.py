@@ -20,9 +20,17 @@ from personal.views import home_screen_view
 from django.conf import settings
 from django.conf.urls.static import static
 
+from account.views import (
+    login_view,
+    logout_view,
+)
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_screen_view, name='home')
+    path('', home_screen_view, name="home"),
+    path('login/', login_view, name="login"),
+    path('logout/', logout_view, name="logout"),
 ]
 
 if settings.DEBUG:

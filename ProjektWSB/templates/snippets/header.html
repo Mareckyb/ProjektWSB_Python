@@ -30,15 +30,21 @@ browse_activity
         <a class="nav-link disabled" href="#">Dashboard</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-1">
+    <ul class="navbar-nav my-2 my-lg-1">
 		{% if request.user.is_authenticated %}
-      <button class="btn btn-outline-success my-2 my-sm-0 m-2" type="Login" href="#">Wyloguj</button>
-		{% else %}
-		<button class="btn btn-outline-warning my-2 my-sm-0 m-2" type="Login" href="#">Zaloguj</button>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Wyloguj</a>
+        </li>
+      	{% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Zaloguj</a>
+        </li>
 		{% endif %}
       {% if request.user.is_authenticated %}
-      <button class="btn btn-outline-info my-2 my-sm-0 m-2" type="Login" href="#">Zmiana hasla</button>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Zmiana hasla</a>
+        </li>
       {% endif %}
-    </form>
+    </ul>
   </div>
 </nav>
