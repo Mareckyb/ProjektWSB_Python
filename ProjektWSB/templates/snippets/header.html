@@ -42,7 +42,7 @@ browse_activity
 		{% endif %}
       {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Zmiana hasla</a>
+          <a class="nav-link" href="{% url 'password_change' %}">Zmiana hasla</a>
         </li>
       {% endif %}
     </ul>
