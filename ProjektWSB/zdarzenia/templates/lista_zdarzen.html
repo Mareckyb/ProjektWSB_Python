@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Typ zdarzenia</th>
+        <th>Data i czas zdarzenia</th>
+        <th>Zasob</th>
+        <th>Opis Zdarzenia</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for zdarzenie in object_list %}
+    <!-- Display Objects -->
+    <tr>
+        <td>{{ zdarzenie.id }}</td>
+        <td>{{ zdarzenie.typ_zdarzenia }}</td>
+        <td>{{ zdarzenie.data_dodania }}</td>
+        <td>{{ zdarzenie.zasob }}</td>
+        <td>{{ zdarzenie.opis }}</td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}

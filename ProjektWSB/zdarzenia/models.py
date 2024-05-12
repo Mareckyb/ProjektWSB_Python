@@ -9,7 +9,7 @@ class Zasob(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.id}_{self.nazwa}"
+        return f"{self.nazwa}"
 
     class Meta:
         ordering = ["nazwa"]

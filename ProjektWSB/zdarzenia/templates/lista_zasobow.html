@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nazwa</th>
+        <th>Data i czas dodania</th>
+        <th>Funkcje</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+{% for zasob in object_list %}
+    <!-- Display Objects -->
+    <tr>
+        <td>{{ zasob.id }}</td>
+        <td>{{ zasob.nazwa }}</td>
+        <td>{{ zasob.data_dodania }}</td>
+        <td> <form action="{% url 'usun_zasob' zasob.id %}">
+                 {% csrf_token %}
+                <input type="submit" value="Kasuj">
+            </form>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}
