@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Moje aplikacje
     'personal',
     'account',
+    'zdarzenia',
 
     # Aplikacje standardowe
     'django.contrib.admin',

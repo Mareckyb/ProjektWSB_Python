@@ -33,9 +33,9 @@
 		  <div class="card-body">
 		    <form class="form-signin" method="post">{% csrf_token %}
 
-				<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				<input type="email" name="email" id="inputEmail" class="form-control" placeholder="adres email" required autofocus>
 
-				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="haslo" required>
 
 				{% for field in login_form %}
 				<p>
@@ -51,7 +51,7 @@
 
 				{% endif %}
 
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 				</form>
 
 
