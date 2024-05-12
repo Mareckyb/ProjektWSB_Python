@@ -2,6 +2,16 @@
 {% load static %}
 
 {% block content %}
+<form action="{% url 'zdarzenie_list' %}" method="POST">
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    <input type="submit" value="SEARCH">
+    {% csrf_token %}
+
 <table class="table">
     <thead>
     <tr>
