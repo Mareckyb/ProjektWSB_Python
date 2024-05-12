@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'personal',
     'account',
     'zdarzenia',
+    'rest_framework',
 
     # Aplikacje standardowe
     'django.contrib.admin',

@@ -20,7 +20,7 @@ from personal.views import home_screen_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from zdarzenia.views import ZasobListView, usun_zasob, ZdarzenieListView
+from zdarzenia.views import ZasobListView, usun_zasob, ZdarzenieListView, zdarzenie_list
 
 from account.views import (
     login_view,
@@ -36,6 +36,7 @@ urlpatterns = [
     path('lista_zasobow/', ZasobListView.as_view(), name="zasob_list"),
     path('lista_zdarzen/', ZdarzenieListView.as_view(), name="zdarzenie_list"),
     path('usun_zasob/<int:zasob_id>', usun_zasob, name="usun_zasob"),
+    path('api_zdarzenie/', zdarzenie_list, name="lista_zdarzen_json"),
 
 # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_reset/password_change_done.html'),

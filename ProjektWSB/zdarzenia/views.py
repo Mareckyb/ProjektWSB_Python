@@ -2,9 +2,29 @@ from django.shortcuts import render, redirect
 from zdarzenia.models import Zdarzenie, Zasob
 from zdarzenia.forms import ZdarzenieForm
 from django.views.generic.list import ListView
+from django.http import JsonResponse
+from zdarzenia.serializers import ZdarzenieSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 
 
-# Create your views here.
+@api_view(['GET', 'POST'])
+def zdarzenie_list(request):
+
+    if request.method == 'GET':
+        zdarzenie = Zdarzenie.objects.all()
+        serializer = ZdarzenieSerializer(zdarzenie, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    if request.method == 'POST':
+        serializer = ZdarzenieSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+
 def usun_zasob(request, zasob_id):
     try:
         zas = Zasob.objects.get(id=zasob_id)
