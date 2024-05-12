@@ -40,9 +40,16 @@ class ZdarzenieListView(ListView):
         form = context["form"]
         if form.is_valid():
             typ_zdarzenia = self.request.POST["typ_zdarzenia"]
+            data_od = self.request.POST["data_od"]
+            data_do = self.request.POST["data_do"]
+            #zasob = self.request.POST["zasob"]
 
             if typ_zdarzenia != "":
                 self.object_list = self.object_list.filter(typ_zdarzenia=typ_zdarzenia)
+            if data_od != "" and data_do !="":
+                self.object_list = self.object_list.filter(data_zdarzenia__gte=data_od, data_zdarzenia__lte=data_do)
+            #if zasob != "":
+            #    self.object_list = self.object_list.filter(zasob=zasob)
 
             context[self.context_object_name] = self.object_list
         return render(self.request, self.template_name, context)

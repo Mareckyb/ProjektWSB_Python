@@ -27,4 +27,4 @@ class Zdarzenie(models.Model):
         return f"{self.id}_{self.typ_zdarzenia}_{self.zasob}_{self.data_dodania}_{self.opis}"
 
     class Meta:
-        ordering = ["data_dodania", "typ_zdarzenia"]
+        ordering = ["-data_dodania", "typ_zdarzenia"]
